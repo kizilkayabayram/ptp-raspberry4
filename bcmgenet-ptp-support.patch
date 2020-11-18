@@ -1,0 +1,23 @@
+From 6ec10aff9532fc1488e8ec7321a897aaa7e050c7 Mon Sep 17 00:00:00 2001
+From: kizilkayabayram <bayram.kizilkaya2017@gtu.edu.tr>
+Date: Wed, 18 Nov 2020 16:29:38 +0300
+Subject: [PATCH] Add bcmgenet software ptp support
+
+---
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+index 230d7151796e..80b7c5ad4e35 100644
+--- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
++++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+@@ -1133,6 +1133,7 @@ static const struct ethtool_ops bcmgenet_ethtool_ops = {
+        .set_coalesce           = bcmgenet_set_coalesce,
+        .get_link_ksettings     = bcmgenet_get_link_ksettings,
+        .set_link_ksettings     = bcmgenet_set_link_ksettings,
++       .get_ts_info            = ethtool_op_get_ts_info,
+ };
+ 
+ /* Power down the unimac, based on mode. */
+-- 
+2.20.1
